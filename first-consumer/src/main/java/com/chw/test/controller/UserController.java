@@ -2,6 +2,7 @@ package com.chw.test.controller;
 
 
 import com.chw.test.feign.TestFeign;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,10 +28,15 @@ public class UserController {
     @Autowired
     private AmqpTemplate amqpTemplate;
 
+    @HystrixCommand(fallbackMethod = "getBackMessage")
     @GetMapping("/testFirst")
     public String testFirst(){
         System.out.println("请求调用消费者");
         return testFeign.testOne();
+    }
+
+    public String getBackMessage(){
+        return "超时，返回默认消息";
     }
 
     @GetMapping("/hello")

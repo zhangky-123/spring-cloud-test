@@ -6,6 +6,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 @FeignClient("first-provider")
 public interface TestFeign {
 
-    @GetMapping("/testOne")
+    @GetMapping("/api/feign/testOne")
     String testOne();
 }
