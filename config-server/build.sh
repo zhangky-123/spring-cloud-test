@@ -15,8 +15,6 @@ docker build -t config-server ./docker
 echo '完成构建镜像。。。。'
 echo '开始启动镜像。。。。'
 
-docker run -d -p 13324:3324 config-server
+docker run -d -p 3324:3324 config-server
 
-# -d参数是让容器后台运行
-# -p 是做端口映射，此时将服务器中的13324端口映射到容器中的3324(项目中端口配置的是3324)端口
 

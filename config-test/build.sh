@@ -15,7 +15,7 @@ docker build -t config-test ./docker
 echo '完成构建镜像。。。。'
 echo '开始启动镜像。。。。'
 
-docker run -d -p 13325:3325 config-test
+docker run -d -p 3325:3325 config-test
 
 
 
