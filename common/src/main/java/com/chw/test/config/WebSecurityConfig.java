@@ -111,6 +111,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/loginPage").permitAll()
                 //feign调用放行
                 .antMatchers("/api/feign/**").permitAll()
+                .antMatchers("/druid/**").permitAll()
                 //其余任何请求都需要登录
                 .anyRequest().authenticated()
                 .and()
