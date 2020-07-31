@@ -13,5 +13,5 @@ ADD *.jar app.jar
 # 运行jar包
 RUN bash -c 'touch /app.jar'
 
-#ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
-ENTRYPOINT ["sh","-c","java -Djava.security.egd=file:/dev/./urandom -jar /app.jar ${JAVA_OPTS}"]
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
+#ENTRYPOINT ["sh","-c","java -Djava.security.egd=file:/dev/./urandom -jar /app.jar ${JAVA_OPTS}"]
