@@ -18,7 +18,7 @@ docker build -t first-provider ./docker
 echo '完成构建镜像。。。。'
 
 echo '开始启动镜像。。。。'
-docker run -e "JAVA_OPTS=--spring.profiles.active=${version}" -d -p 3322:3322 first-provider-impl
+docker run -e "JAVA_OPTS=--spring.profiles.active=${version}" -d -p 3322:3322 first-provider
 #-e "EUREKA_HOST=--EUREKA_HOST=eureka-test"
 # docker run -d -p 13321:3321 eureka-test
 # -d参数是让容器后台运行
