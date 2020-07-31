@@ -12,13 +12,13 @@ rm ./docker/*.jar
 mv ./target/first-provider-impl-1.0-SNAPSHOT.jar ./docker
 
 echo '开始构建镜像。。。。'
-docker build -t first-provider-impl ./docker
+docker build -t first-provider ./docker
 # -t 给镜像起个名字（eureka-test）
 # ./docker 使用的Dockerfile文件的位置
 echo '完成构建镜像。。。。'
 
 echo '开始启动镜像。。。。'
-docker run -e "JAVA_OPTS=--spring.profiles.active=${version}" -e "EUREKA_HOST=--EUREKA_HOST=eureka-test" -d -p 3322:3322 first-provider-impl
+docker run -e "JAVA_OPTS=--spring.profiles.active=${version}" -d -p 3322:3322 first-provider-impl
 #-e "EUREKA_HOST=--EUREKA_HOST=eureka-test"
 # docker run -d -p 13321:3321 eureka-test
 # -d参数是让容器后台运行

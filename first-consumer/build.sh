@@ -15,7 +15,7 @@ then
     echo '完成构建镜像。。。。'
 
     echo '开始启动镜像。。。。'
-    docker run -e "JAVA_OPTS=--spring.profiles.active=${version}" -d -p 3323:3323 first-consumer
+    docker run -e "JAVA_OPTS=--spring.profiles.active=${version}" -e "EUREKA_HOST=--EUREKA_HOST=eureka-test" -d -p 3323:3323 first-consumer
 else
 	echo '输入参数不正确！'
 fi

@@ -4,7 +4,7 @@
 # 基础镜像使用java
 FROM java:8
 # 作者
-MAINTAINER zky <1226618137@qq.com>
+MAINTAINER CarlBryant <1254638750@qq.com>
 # VOLUME 指定了临时文件目录为/tmp
 # 其效果是在主机 /var/lib/docker 目录下创建了一个临时文件，并链接到容器的/tmp
 VOLUME /tmp
@@ -13,5 +13,4 @@ ADD *.jar app.jar
 # 运行jar包
 RUN bash -c 'touch /app.jar'
 
-#ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
-ENTRYPOINT ["sh","-c","java -Djava.security.egd=file:/dev/./urandom -jar /app.jar ${JAVA_OPTS} ${EUREKA_HOST}"]
+ENTRYPOINT ["sh","-c","java -Djava.security.egd=file:/dev/./urandom -jar /app.jar ${JAVA_OPTS}"]
