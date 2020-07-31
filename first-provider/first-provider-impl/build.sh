@@ -18,8 +18,8 @@ docker build -t first-provider-impl ./docker
 echo '完成构建镜像。。。。'
 
 echo '开始启动镜像。。。。'
-docker run -e "JAVA_OPTS=--spring.profiles.active=${version}" -d -p 3322:3322 first-provider-impl
-#-e "JAVA_OPTS=--spring.profiles.active=${version}"
+docker run -e "JAVA_OPTS=--spring.profiles.active=${version}" -e "EUREKA_HOST=--EUREKA_HOST=eureka-test" -d -p 3322:3322 first-provider-impl
+#-e "EUREKA_HOST=--EUREKA_HOST=eureka-test"
 # docker run -d -p 13321:3321 eureka-test
 # -d参数是让容器后台运行
 # -p 是做端口映射，此时将服务器中的13321端口映射到容器中的3321(项目中端口配置的是3321)端口
